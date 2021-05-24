@@ -3,21 +3,29 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   username: {
     type: String,
-    requiered 
-    unique 
-    trimmed
+    required: true,
+    unique: true,
+    trimmed: true,
   },
   email: {
     type: String,
-    required 
-    unique
-    match 
+    required: true,
+    unique: true,
+    validate: {
+      validator: () => Promise.resolve(false),
+      message: "Email validation failed",
+    },
   },
-  thoughts: [],s
+  thoughts: [],
   friends: [],
 });
+user.validate().catch((error) => {
+  assert.ok(error);
+  assert.equal(error.errors["name"].message, "Oops!");
+  assert.equal(error.errors["email"].message, "Email validation failed");
+});
 
-freindCount
+freindCount;
 
-const User = model('User', UserSchema);
+const User = model("User", UserSchema);
 module.exports = User;
