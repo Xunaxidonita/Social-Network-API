@@ -25,7 +25,7 @@ user.validate().catch((error) => {
   assert.equal(error.errors["email"].message, "Email validation failed");
 });
 
-freindCount;
+friendCount;
 
 const User = model("User", UserSchema);
 module.exports = User;
