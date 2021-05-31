@@ -36,8 +36,7 @@ const thoughtSchema = new Schema({
     ref: "User",
     required: true,
   },
-  // reactions: [reactionSchema],
-  // reaction: reactionSchema,
+  reactions: [reactionSchema],
 });
 
 thoughtSchema.virtual("formatedDate").get(function () {
